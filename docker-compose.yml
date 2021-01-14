@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8000:80"
+    volumes:
+      - ./docker/nginx/conf.d/nginx.${APP_ENV}.conf:/etc/nginx/conf.d/default.conf
+      - .:/app
+  php:
+    build:
+      context: .
+      target: symfony_php
+    volumes:
+      - .:/app
+      - ./docker/php/conf.d/symfony.dev.ini:/usr/local/etc/php/conf.d/symfony.ini
+  postgres:
+    image: postgres:latest
+    hostname: postgres
+    ports:
+      - "5432:5432"
