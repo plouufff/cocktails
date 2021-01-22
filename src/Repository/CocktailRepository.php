@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Cocktail;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\AbstractQuery;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,32 +20,19 @@ class CocktailRepository extends ServiceEntityRepository
         parent::__construct($registry, Cocktail::class);
     }
 
-    // /**
-    //  * @return Cocktail[] Returns an array of Cocktail objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getRandomCocktail(): Cocktail
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+        $count = $this->createQueryBuilder('c')
+            ->select('COUNT(c.id)')
             ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+            ->getSingleScalarResult();
 
-    /*
-    public function findOneBySomeField($value): ?Cocktail
-    {
+        $random = rand(0, $count - 1);
+
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
+            ->setMaxResults(1)
+            ->setFirstResult($random)
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getSingleResult(AbstractQuery::HYDRATE_OBJECT);
     }
-    */
 }

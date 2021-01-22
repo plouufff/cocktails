@@ -1,0 +1,37 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ cocktail.name|capitalize }}{% endblock %}
+
+{% block content %}
+    <div class="bg-light p-5">
+        <div class="container p-3 bg-white rounded shadow-sm">
+            <section class="mb-3 p-3">
+                <div class="row">
+                    <div class="col-md-10 d-flex flex-column justify-content-center p-3">
+                        <h1>{{ cocktail.name|title }}</h1>
+                        {% for cocktailIngredient in cocktail.cocktailIngredients %}
+                            {% if loop.first %}
+                                <ul class="list-unstyled">
+                            {% endif %}
+                            <li class="badge badge-primary badge-{{ cocktailIngredient.ingredient.ingredientCategory.name|replace({' ' : '-'}) }}">
+                                {{ cocktailIngredient.quantity }}
+                                {{ cocktailIngredient.measure }}{{ cocktailIngredient.measure is not null ? ' de' : ''  }}
+                                {{ cocktailIngredient.ingredient.name }}
+                            </li>
+                            {% if loop.last %}
+                                </ul>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+
+            <section class="my-3 p-3">
+                <h2 class="border-bottom border-gray pb-2 mb-0">La recette</h2>
+                <div class="col-md-12 pt-3">
+                    {{ cocktail.recipe|markdown }}
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
