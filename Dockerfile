@@ -51,7 +51,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN ln -s $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
 COPY docker/php/conf.d/symfony.prod.ini $PHP_INI_DIR/conf.d/symfony.ini
 
-COPY . .
+WORKDIR /app
+COPY --chown=www-data:www-data . .
 
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
@@ -60,7 +61,10 @@ RUN set -eux; \
 	composer symfony:dump-env prod; \
 	composer run-script --no-dev post-install-cmd; \
 	chmod +x bin/console; sync
-VOLUME /srv/app/var
+VOLUME /app/var
 
-EXPOSE 9000
+COPY docker/php/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
+
+ENTRYPOINT ["docker-entrypoint"]
 CMD ["php-fpm"]
