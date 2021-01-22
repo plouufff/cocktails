@@ -8,3 +8,4 @@ docker-compose.yml
 docker-compose.dev.yml
 .env
 .env.local
+.data
