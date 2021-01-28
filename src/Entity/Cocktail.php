@@ -9,15 +9,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=CocktailRepository::class)
- * @ORM\HasLifecycleCallbacks()
  * @UniqueEntity("slug")
  */
 class Cocktail
 {
+    use TimestampableEntity;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -40,16 +42,6 @@ class Cocktail
      * @ORM\Column(type="text")
      */
     private ?string $recipe;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private ?\DateTimeInterface $createdAt;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTimeInterface $updatedAt;
 
     /**
      * @ORM\OneToMany(targetEntity=CocktailIngredient::class, mappedBy="cocktail", orphanRemoval=true)
@@ -105,46 +97,6 @@ class Cocktail
         $this->recipe = $recipe;
 
         return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @ORM\PrePersist
-     */
-    public function setCreatedAtValue(): void
-    {
-        $this->createdAt = new \DateTime();
-    }
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * @ORM\PreUpdate()
-     */
-    public function setUpdatedAtValue(): void
-    {
-        $this->updatedAt = new \DateTime();
     }
 
     public function getCocktailIngredients(): Collection
