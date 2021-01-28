@@ -8,6 +8,7 @@ use App\Repository\CocktailRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
@@ -32,6 +33,7 @@ class Cocktail
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Gedmo\Slug(fields={"name"})
      */
     private ?string $slug = null;
 
@@ -92,13 +94,6 @@ class Cocktail
         $this->slug = $slug;
 
         return $this;
-    }
-
-    public function computeSlug(SluggerInterface $slugger)
-    {
-        if (!$this->slug || '-' === $this->slug) {
-            $this->slug = (string)$slugger->slug((string)$this)->lower();
-        }
     }
 
     public function getRecipe(): ?string
