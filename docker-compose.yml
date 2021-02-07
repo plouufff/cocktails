@@ -14,6 +14,7 @@ services:
       target: symfony_php
     volumes:
       - ./var:/app/var:rw
+      - ./public:/app/public
     env_file:
       - .env.local
   database:

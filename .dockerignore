@@ -3,9 +3,7 @@ public/build
 vendor
 node_modules
 Dockerfile
-docker
 docker-compose.yml
 docker-compose.dev.yml
-.env
 .env.local
 .data
