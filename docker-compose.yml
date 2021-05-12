@@ -15,6 +15,8 @@ services:
     volumes:
       - ./var:/app/var:rw
       - ./public:/app/public
+    ports:
+      - 127.0.0.1:9000:9000
     env_file:
       - .env.local
   database:
