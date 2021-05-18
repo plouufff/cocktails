@@ -1,4 +1,6 @@
 {
+    "name": "plouufff/cocktails",
+    "description": "cocktails.plouufff.ovh repository",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "dev",
@@ -7,7 +9,6 @@
         "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "composer/package-versions-deprecated": "1.11.99.1",
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
