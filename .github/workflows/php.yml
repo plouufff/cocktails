@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: symfonycorp/security-checker-action@v2
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
     - name: Cache Composer packages
