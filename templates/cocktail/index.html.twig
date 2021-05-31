@@ -2,44 +2,25 @@
 
 {% block title %}Cocktails{% endblock %}
 
-{% block header %}
-    {{ parent() }}
-
-    <section class="jumbotron jumbotron-fluid jumbotron-hue-{{ hue1 }} text-center" data-background="{{ asset('build/header.jpg') }}">
-        <div class="container text-white">
-            <h1 class="display-4">Cocktails</h1>
-            <p class="lead">
-                Des recettes simples pour faire à la maison ce qu'on ne peut plus commander au bar...
-                À consommer avec modération
-            </p>
-            <p>
-                <a href="{{ path('random_cocktail') }}" class="btn btn-hue-{{ hue2 }} my-2">
-                    Un cocktail au hasard !
-                </a>
-            </p>
-        </div>
-    </section>
-{% endblock %}
-
 {% block content %}
     <section class="cocktails py-5 bg-light">
         <div class="container">
             <div class="row">
                 {% for cocktail in cocktails %}
                     <div class="col-md-3 mb-4">
-                        <div class="card border-0 h-100 {{ 'card-hue-'~hue2 }}">
+                        <div class="card border-0 h-100 {{ 'card-hue-'~hue }}">
                             <div class="card-body d-flex flex-column justify-content-between">
                                 <h3 class="card-title font-weight-bold text-center">{{ cocktail.name|title }}</h3>
                                 <div class="mb-3 text-center">
                                     {% for cocktailIngredient in cocktail.cocktailIngredients %}
-                                        <span class="badge {{ 'badge-hue-'~hue2 }}">
+                                        <span class="badge {{ 'badge-hue-'~hue }}">
                                             {{ cocktailIngredient.ingredient|capitalize }}
                                         </span>
                                     {% endfor %}
                                 </div>
                             </div>
                             <div class="card-footer border-0 text-center">
-                                <a type="button" class="btn btn-sm stretched-link {{ 'btn-hue-'~hue2 }}"
+                                <a type="button" class="btn btn-sm stretched-link {{ 'btn-hue-'~hue }}"
                                    href="{{ path('cocktail', {slug: cocktail.slug}) }}"
                                 >
                                     voir la recette

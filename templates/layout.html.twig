@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% set hue1 = random(36) * 10 %}
-{% set hue2 = random(36) * 10 %}
+{% set hue = random(36) * 10 %}
 
 {% block body %}
     <header>
@@ -11,6 +10,9 @@
                     <div class="container d-flex justify-content-between">
                         <a href="{{ path('homepage') }}" class="navbar-brand d-flex align-items-center">
                             <strong>Cocktails !</strong>
+                        </a>
+                        <a href="{{ path('random_cocktail') }}" class="btn btn-hue-{{ hue }} my-2">
+                            Un cocktail au hasard !
                         </a>
                     </div>
                 </nav>
