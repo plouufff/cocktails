@@ -25,4 +25,4 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
     - name: phpcs
-      run: ./vendor/bin/phpcs
+      run: ./vendor/bin/phpcs --standard=PSR12 src/ tests/
