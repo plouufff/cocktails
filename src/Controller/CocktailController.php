@@ -19,6 +19,17 @@ class CocktailController extends AbstractController
     }
 
     /**
+     * @Route("/cocktail_nav_badge/{hue}", name="cocktail_nav_badge")
+     */
+    public function navBadge(string $hue): Response
+    {
+        return $this->render('cocktail/nav_badge.html.twig', [
+            'nbCocktails' => $this->cocktails->count([]),
+            'hue' => $hue
+        ]);
+    }
+
+    /**
      * @Route("/", name="homepage")
      */
     public function index(): Response

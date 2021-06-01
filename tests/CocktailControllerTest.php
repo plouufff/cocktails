@@ -13,7 +13,7 @@ class CocktailControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Cocktails');
+        $this->assertSelectorTextContains('nav strong', 'Cocktails !');
     }
 
     public function testShowSuccess(): void
@@ -29,6 +29,7 @@ class CocktailControllerTest extends WebTestCase
     {
         $client = static::createClient();
         $client->catchExceptions(false);
+
         $this->expectException(NotFoundHttpException::class);
         $client->request('GET', '/cocktail/failure');
     }
