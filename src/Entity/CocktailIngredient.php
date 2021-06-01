@@ -6,12 +6,15 @@ namespace App\Entity;
 
 use App\Repository\CocktailIngredientRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity(repositoryClass=CocktailIngredientRepository::class)
  */
 class CocktailIngredient
 {
+    use TimestampableEntity;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
