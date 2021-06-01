@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Cocktail;
 use App\Repository\CocktailRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,14 +11,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CocktailController extends AbstractController
 {
-    private EntityManagerInterface $entityManager;
     private CocktailRepository $cocktails;
 
-    public function __construct(
-        EntityManagerInterface $entityManager,
-        CocktailRepository $cocktails
-    ) {
-        $this->entityManager = $entityManager;
+    public function __construct(CocktailRepository $cocktails)
+    {
         $this->cocktails = $cocktails;
     }
 
@@ -28,9 +23,7 @@ class CocktailController extends AbstractController
      */
     public function index(): Response
     {
-        $cocktails = $this->entityManager->getRepository(Cocktail::class)->findAll();
-
-        return $this->render('cocktail/index.html.twig', ['cocktails' => $cocktails]);
+        return $this->render('cocktail/index.html.twig', ['cocktails' => $this->cocktails->findAll()]);
     }
 
     /**
@@ -38,9 +31,9 @@ class CocktailController extends AbstractController
      */
     public function showRandom(): Response
     {
-        $randomCocktail = $this->cocktails->getRandomCocktail();
-
-        return new RedirectResponse($this->generateUrl('cocktail', ['slug' => $randomCocktail->getSlug()]));
+        return new RedirectResponse(
+            $this->generateUrl('cocktail', ['slug' => $this->cocktails->getRandomCocktail()->getSlug()])
+        );
     }
 
     /**
