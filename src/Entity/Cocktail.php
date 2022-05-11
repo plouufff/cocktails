@@ -50,7 +50,8 @@ class Cocktail
 
     public function __toString(): string
     {
-        return $this->name;
+        // return $this->name;
+        return 'test';
     }
 
     public function __construct()

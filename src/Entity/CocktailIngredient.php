@@ -44,6 +44,15 @@ class CocktailIngredient
      */
     private ?Ingredient $ingredient;
 
+    public function __toString(): string
+    {
+        if (null !== $this->ingredient && null !== $this->quantity && null !== $this->measure) {
+            return sprintf("%s %s %s", $this->ingredient->getName(), $this->quantity, $this->measure);
+        }
+
+        return $this->ingredient->getName();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

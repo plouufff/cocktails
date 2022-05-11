@@ -39,6 +39,11 @@ class IngredientCategory
         $this->ingredients = new ArrayCollection();
     }
 
+    public function __toString(): string
+    {
+        return null !== $this->name ? $this->name : 'IngredientCategory';
+    }
+
     public function getId(): ?int
     {
         return $this->id;

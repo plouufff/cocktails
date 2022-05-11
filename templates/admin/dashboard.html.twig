@@ -1,0 +1,12 @@
+{% trans_default_domain 'admin' %}
+
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title 'dashboard.welcome.title'|trans %}
+
+{% block page_title %}Cocktails - Dashboard{% endblock %}
+{% block title %}Cocktails{% endblock %}
+
+{% block main %}
+   <p>{{ 'dashboard.welcome.message'|trans }}<p>
+{% endblock %}

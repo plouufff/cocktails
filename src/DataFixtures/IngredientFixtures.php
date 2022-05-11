@@ -6,20 +6,12 @@ namespace App\DataFixtures;
 
 use App\Entity\Ingredient;
 use App\Entity\IngredientCategory;
-use App\Kernel;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
 class IngredientFixtures extends Fixture implements DependentFixtureInterface
 {
-    private $kernel;
-
-    public function __construct(Kernel $kernel)
-    {
-        $this->kernel = $kernel;
-    }
-
     public function load(ObjectManager $manager): void
     {
         $data = [

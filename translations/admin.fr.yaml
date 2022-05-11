@@ -1,0 +1,42 @@
+dashboard:
+  welcome:
+    title: Bienvenue sur l'admin des cocktails
+    message: Dans cet espace, vous pouvez gérer les cocktails existants, en créer de nouveau, les modifier voire les supprimer.
+
+menu:
+  administration: Administration
+  general: Général
+  admin_home: Accueil
+  website_home: Vers le site
+  cocktails: Gestion des cocktails
+  users: Utilisateurs
+
+shared:
+  id: Id
+  createdAt: Date de création
+  name: Nom
+  updatedAt: Date de modification
+
+cocktails:
+  ingredients: Ingrédients
+  plural: Cocktails
+  recipe: Recette
+  singular: Cocktail
+  slug: Slug
+
+cocktail_ingredients:
+  quantity: Quantité
+  measure: Mesure
+
+ingredients:
+  singular: Ingrédient
+  plural: Ingrédients
+
+ingredient_categories:
+  singular: Catégorie d'ingrédient
+  plural: Catégories d'ingrédient
+
+users:
+  singular: Utilisateur
+  plural: Utilisateurs
+
