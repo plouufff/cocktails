@@ -29,7 +29,7 @@
             <section class="my-3 p-3">
                 <h2 class="border-bottom border-gray pb-2 mb-0">La recette</h2>
                 <div class="col-md-12 pt-3">
-                    {{ cocktail.recipe|markdown }}
+                    {{ cocktail.recipe|markdown_to_html }}
                 </div>
             </section>
         </div>
