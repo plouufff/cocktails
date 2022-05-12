@@ -12,6 +12,7 @@
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
+        "doctrine/persistence": "^2.2",
         "easycorp/easyadmin-bundle": "^4.0",
         "sensio/framework-extra-bundle": "^6",
         "stof/doctrine-extensions-bundle": "^1.6",
