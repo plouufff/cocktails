@@ -36,9 +36,12 @@ class CocktailCrudController extends AbstractCrudController
         yield TextField::new('name', 'shared.name');
         yield TextField::new('slug', 'cocktails.slug');
         yield AssociationField::new('cocktailIngredients', 'cocktails.ingredients')->onlyOnIndex();
-        yield CollectionField::new('cocktailIngredients', 'cocktails.ingredients')->allowAdd()->setEntryType(CocktailIngredientType::class)->hideOnIndex();
+        yield CollectionField::new('cocktailIngredients', 'cocktails.ingredients')
+            ->allowAdd()->setEntryType(CocktailIngredientType::class)->hideOnIndex();
         yield TextEditorField::new('recipe', 'cocktails.recipe');
-        yield DateTimeField::new('createdAt', 'shared.createdAt')->setFormat(DateTimeField::FORMAT_SHORT, DateTimeField::FORMAT_SHORT)->hideOnForm();
-        yield DateTimeField::new('updatedAt', 'shared.updatedAt')->setFormat(DateTimeField::FORMAT_SHORT, DateTimeField::FORMAT_SHORT)->hideOnForm();
+        yield DateTimeField::new('createdAt', 'shared.createdAt')
+            ->setFormat(DateTimeField::FORMAT_SHORT, DateTimeField::FORMAT_SHORT)->hideOnForm();
+        yield DateTimeField::new('updatedAt', 'shared.updatedAt')
+            ->setFormat(DateTimeField::FORMAT_SHORT, DateTimeField::FORMAT_SHORT)->hideOnForm();
     }
 }

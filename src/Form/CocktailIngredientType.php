@@ -18,7 +18,7 @@ class CocktailIngredientType extends AbstractType
         $builder
             ->add('ingredient', EntityType::class, ['class' => Ingredient::class, 'label' => 'ingredients.singular'])
             ->add('quantity', NumberType::class, ['label' => 'cocktail_ingredients.quantity'])
-            ->add('measure', TextType::class,  ['label' => 'cocktail_ingredients.measure'])
+            ->add('measure', TextType::class, ['label' => 'cocktail_ingredients.measure'])
         ;
     }
 

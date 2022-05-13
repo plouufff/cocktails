@@ -34,8 +34,10 @@ class IngredientCrudController extends AbstractCrudController
         yield IdField::new('id', 'shared.id')->setDisabled();
         yield TextField::new('name', 'shared.name');
         yield AssociationField::new('ingredientCategory', 'ingredient_categories.singular');
-        yield DateTimeField::new('createdAt', 'shared.createdAt')->setFormat(DateTimeField::FORMAT_SHORT, DateTimeField::FORMAT_SHORT)->hideOnForm();
-        yield DateTimeField::new('updatedAt', 'shared.updatedAt')->setFormat(DateTimeField::FORMAT_SHORT, DateTimeField::FORMAT_SHORT)->hideOnForm();
+        yield DateTimeField::new('createdAt', 'shared.createdAt')
+            ->setFormat(DateTimeField::FORMAT_SHORT, DateTimeField::FORMAT_SHORT)->hideOnForm();
+        yield DateTimeField::new('updatedAt', 'shared.updatedAt')
+            ->setFormat(DateTimeField::FORMAT_SHORT, DateTimeField::FORMAT_SHORT)->hideOnForm();
     }
 
     public function configureFilters(Filters $filters): Filters
