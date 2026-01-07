@@ -7,10 +7,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Ingredient|null find($id, $lockMode = null, $lockVersion = null)
- * @method Ingredient|null findOneBy(array $criteria, array $orderBy = null)
- * @method Ingredient[]    findAll()
- * @method Ingredient[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @extends ServiceEntityRepository<Ingredient>
  */
 class IngredientRepository extends ServiceEntityRepository
 {

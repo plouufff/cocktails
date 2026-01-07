@@ -8,10 +8,7 @@ use Doctrine\ORM\AbstractQuery;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Cocktail|null find($id, $lockMode = null, $lockVersion = null)
- * @method Cocktail|null findOneBy(array $criteria, array $orderBy = null)
- * @method Cocktail[]    findAll()
- * @method Cocktail[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @extends ServiceEntityRepository<Cocktail>
  */
 class CocktailRepository extends ServiceEntityRepository
 {
