@@ -7,6 +7,9 @@ namespace App\Controller\Admin;
 use App\Entity\CocktailIngredient;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
+/**
+* @extends AbstractCrudController<CocktailIngredient>
+*/
 class CocktailIngredientCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
