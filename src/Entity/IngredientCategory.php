@@ -10,28 +10,20 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
-/**
- * @ORM\Entity(repositoryClass=IngredientCategoryRepository::class)
- */
+#[ORM\Entity(repositoryClass: IngredientCategoryRepository::class)]
 class IngredientCategory
 {
     use TimestampableEntity;
 
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: integer)]
     private ?int $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: string, length: 255)]
     private ?string $name;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Ingredient::class, mappedBy="ingredientCategory")
-     */
+    #[ORM\OneToMany(targetEntity: Ingredient::class, mappedBy: 'ingredientCategory')]
     private Collection $ingredients;
 
     public function __construct()

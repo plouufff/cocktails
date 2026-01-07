@@ -8,40 +8,28 @@ use App\Repository\CocktailIngredientRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
-/**
- * @ORM\Entity(repositoryClass=CocktailIngredientRepository::class)
- */
+#[ORM\Entity(repositoryClass: CocktailIngredientRepository::class)]
 class CocktailIngredient
 {
     use TimestampableEntity;
 
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: integer)]
     private ?int $id;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Cocktail::class, inversedBy="cocktailIngredients")
-     * @ORM\JoinColumn(nullable=false)
-     */
+    #[ORM\ManyToOne(targetEntity: Cocktail::class, inversedBy: 'cocktailIngredients')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?Cocktail $cocktail;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: integer)]
     private ?int $quantity;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
+    #[ORM\Column(type: string, length: 255, nullable: true)]
     private ?string $measure;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Ingredient::class, inversedBy="cocktailIngredients")
-     * @ORM\JoinColumn(nullable=false)
-     */
+    #[ORM\ManyToOne(targetEntity: Ingredient::class, inversedBy: 'cocktailIngredients')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?Ingredient $ingredient;
 
     public function __toString(): string

@@ -12,46 +12,33 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-/**
- * @ORM\Entity(repositoryClass=CocktailRepository::class)
- * @UniqueEntity("slug")
- */
+#[ORM\Entity(repositoryClass: CocktailRepository::class)]
+#[UniqueEntity("slug")]
 class Cocktail
 {
     use TimestampableEntity;
 
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: integer)]
     private ?int $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: string, length: 255)]
     private ?string $name;
 
-    /**
-     * @ORM\Column(type="string", length=255, unique=true)
-     * @Gedmo\Slug(fields={"name"})
-     */
+    #[ORM\Column(type: string, length: 255, unique: true)]
+    #[Gedmo\Slug(fields: ['name'])]
     private ?string $slug = null;
 
-    /**
-     * @ORM\Column(type="text")
-     */
+    #[ORM\Column(type: text)]
     private ?string $recipe;
 
-    /**
-     * @ORM\OneToMany(targetEntity=CocktailIngredient::class, mappedBy="cocktail", orphanRemoval=true)
-     */
+    #[ORM\OneToMany(targetEntity: CocktailIngredient::class, mappedBy: 'cocktail', orphanRemoval: true)]
     private Collection $cocktailIngredients;
 
     public function __toString(): string
     {
-        // return $this->name;
-        return 'test';
+        return $this->name;
     }
 
     public function __construct()
