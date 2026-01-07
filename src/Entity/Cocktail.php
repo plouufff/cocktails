@@ -7,6 +7,7 @@ namespace App\Entity;
 use App\Repository\CocktailRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -20,17 +21,17 @@ class Cocktail
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: integer)]
+    #[ORM\Column(type: Types::INTEGER)]
     private ?int $id;
 
-    #[ORM\Column(type: string, length: 255)]
+    #[ORM\Column(type: Types::STRING, length: 255)]
     private ?string $name;
 
-    #[ORM\Column(type: string, length: 255, unique: true)]
+    #[ORM\Column(type: Types::STRING, length: 255, unique: true)]
     #[Gedmo\Slug(fields: ['name'])]
     private ?string $slug = null;
 
-    #[ORM\Column(type: text)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $recipe;
 
     #[ORM\OneToMany(targetEntity: CocktailIngredient::class, mappedBy: 'cocktail', orphanRemoval: true)]

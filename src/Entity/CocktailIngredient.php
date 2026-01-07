@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use App\Repository\CocktailIngredientRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
@@ -15,17 +16,17 @@ class CocktailIngredient
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column(type: integer)]
+    #[ORM\Column(type: Types::INTEGER)]
     private ?int $id;
 
     #[ORM\ManyToOne(targetEntity: Cocktail::class, inversedBy: 'cocktailIngredients')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Cocktail $cocktail;
 
-    #[ORM\Column(type: integer)]
+    #[ORM\Column(type: Types::INTEGER)]
     private ?int $quantity;
 
-    #[ORM\Column(type: string, length: 255, nullable: true)]
+    #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
     private ?string $measure;
 
     #[ORM\ManyToOne(targetEntity: Ingredient::class, inversedBy: 'cocktailIngredients')]
