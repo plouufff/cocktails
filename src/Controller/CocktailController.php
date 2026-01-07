@@ -9,7 +9,7 @@ use App\Repository\CocktailRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class CocktailController extends AbstractController
 {
@@ -20,9 +20,7 @@ class CocktailController extends AbstractController
         $this->cocktails = $cocktails;
     }
 
-    /**
-     * @Route("/cocktail_nav_badge/{hue}", name="cocktail_nav_badge")
-     */
+    #[Route('/cocktail_nav_badge/{hue}', name: 'cocktail_nav_badge')]
     public function navBadge(string $hue): Response
     {
         return $this->render('cocktail/nav_badge.html.twig', [
@@ -31,17 +29,13 @@ class CocktailController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/", name="homepage")
-     */
+    #[Route('/', name: 'homepage')]
     public function index(): Response
     {
         return $this->render('cocktail/index.html.twig', ['cocktails' => $this->cocktails->findAll()]);
     }
 
-    /**
-     * @Route("/cocktail/random", name="random_cocktail", priority="2")
-     */
+    #[Route('/cocktail/random', name: 'random_cocktail', priority: 2)]
     public function showRandom(): Response
     {
         return new RedirectResponse(
@@ -49,9 +43,7 @@ class CocktailController extends AbstractController
         );
     }
 
-    /**
-     * @Route("/cocktail/{slug}", name="cocktail")
-     */
+    #[Route('/cocktail/{slug}', name: 'cocktail')]
     public function show(Cocktail $cocktail): Response
     {
         return $this->render('cocktail/show.html.twig', ['cocktail' => $cocktail]);
