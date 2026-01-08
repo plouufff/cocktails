@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":pinAllExceptPeerDependencies"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "minimumReleaseAge": "14 days",
+  "prConcurrentLimit": 4,
+  "timezone": "Europe/Paris"
+}
