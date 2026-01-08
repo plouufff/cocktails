@@ -6,7 +6,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "php": "8.5.1",
+    "php": "8.4.16",
     "ext-ctype": "*",
     "ext-iconv": "*",
     "doctrine/doctrine-bundle": "2.13.3",
