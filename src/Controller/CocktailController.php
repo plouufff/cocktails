@@ -43,7 +43,7 @@ class CocktailController extends AbstractController
         );
     }
 
-    #[Route('/cocktail/{slug}', name: 'cocktail')]
+    #[Route('/cocktail/{slug:cocktail}', name: 'cocktail')]
     public function show(Cocktail $cocktail): Response
     {
         return $this->render('cocktail/show.html.twig', ['cocktail' => $cocktail]);

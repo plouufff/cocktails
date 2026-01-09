@@ -101,14 +101,8 @@
             "ref": "b131e6cbfe1b898a508987851963fff485986285"
         }
     },
-    "friendsofphp/proxy-manager-lts": {
-        "version": "v1.0.2"
-    },
     "gedmo/doctrine-extensions": {
         "version": "v3.0.3"
-    },
-    "laminas/laminas-code": {
-        "version": "4.0.0"
     },
     "league/commonmark": {
         "version": "2.3.0"
@@ -320,9 +314,6 @@
     },
     "symfony/property-info": {
         "version": "v5.2.12"
-    },
-    "symfony/proxy-manager-bridge": {
-        "version": "v5.2.1"
     },
     "symfony/routing": {
         "version": "6.0",
