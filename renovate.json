@@ -7,6 +7,12 @@
     "dependencies"
   ],
   "minimumReleaseAge": "14 days",
+  "packageRules": [
+    {
+      "matchCategories": ["js"],
+      "rangeStrategy": "pin"
+    }
+  ],
   "prConcurrentLimit": 4,
   "timezone": "Europe/Paris"
 }
