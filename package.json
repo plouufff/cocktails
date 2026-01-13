@@ -1,16 +1,16 @@
 {
   "devDependencies": {
-    "@hotwired/stimulus": "^3.2.2",
-    "@symfony/stimulus-bridge": "^4.0.1",
-    "@symfony/webpack-encore": "^5.3.1",
-    "bootstrap": "^5.3.8",
-    "bootstrap-icons": "^1.13.1",
-    "core-js": "^3.0.0",
-    "regenerator-runtime": "^0.13.2",
-    "sass": "^1.96.0",
-    "sass-loader": "^16.0.6",
-    "stimulus": "^3.0.0",
-    "webpack-notifier": "^1.15.0"
+    "@hotwired/stimulus": "3.2.2",
+    "@symfony/stimulus-bridge": "4.0.1",
+    "@symfony/webpack-encore": "5.3.1",
+    "bootstrap": "5.3.8",
+    "bootstrap-icons": "1.13.1",
+    "core-js": "3.8.2",
+    "regenerator-runtime": "0.13.7",
+    "sass": "1.96.0",
+    "sass-loader": "16.0.6",
+    "stimulus": "3.2.2",
+    "webpack-notifier": "1.15.0"
   },
   "license": "UNLICENSED",
   "private": true,
