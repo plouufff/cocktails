@@ -7,7 +7,7 @@
     "bootstrap-icons": "1.13.1",
     "core-js": "3.47.0",
     "regenerator-runtime": "0.14.1",
-    "sass": "1.96.0",
+    "sass": "1.97.1",
     "sass-loader": "16.0.6",
     "stimulus": "3.2.2",
     "webpack-notifier": "1.15.0"
