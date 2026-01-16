@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Controller\Api;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -9,8 +9,8 @@ class CocktailControllerTest extends WebTestCase
 {
     public function testIndex(): void
     {
-        $client = static::createClient();
-        $client->request('GET', '/cocktails');
+        $client = static::createClient(server: ['HTTP_HOST' => 'api.test.domain']);
+        $client->request(method: 'GET', uri: '/cocktails');
 
         $this->assertResponseIsSuccessful();
         $this->assertJsonStringEqualsJsonString($client->getResponse()->getContent(), json_encode([
@@ -21,8 +21,8 @@ class CocktailControllerTest extends WebTestCase
 
     public function testShowSuccess(): void
     {
-        $client = static::createClient();
-        $client->request('GET', '/cocktails/caipirinha');
+        $client = static::createClient(server: ['HTTP_HOST' => 'api.test.domain']);
+        $client->request(method: 'GET', uri: '/cocktails/caipirinha');
 
         $this->assertResponseIsSuccessful();
         $this->assertJsonStringEqualsJsonString(
@@ -43,7 +43,7 @@ class CocktailControllerTest extends WebTestCase
 
     public function testShowFailure(): void
     {
-        $client = static::createClient();
+        $client = static::createClient(server: ['HTTP_HOST' => 'api.test.domain']);
         $client->catchExceptions(false);
 
         $this->expectException(NotFoundHttpException::class);
