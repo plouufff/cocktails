@@ -7,15 +7,19 @@ menu:
   administration: Administration
   general: Général
   admin_home: Accueil
-  website_home: Vers le site
   cocktails: Gestion des cocktails
   users: Utilisateurs
 
 shared:
   id: Id
   createdAt: Date de création
+  email: Email
   name: Nom
   updatedAt: Date de modification
+
+admins:
+  plural: Admins
+  singular: Admin
 
 cocktails:
   ingredients: Ingrédients

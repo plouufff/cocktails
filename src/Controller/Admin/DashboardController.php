@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
+use App\Entity\Admin;
 use App\Entity\Cocktail;
 use App\Entity\Ingredient;
 use App\Entity\IngredientCategory;
@@ -13,7 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 
-#[AdminDashboard(routePath: '/admin', routeName: 'admin')]
+#[AdminDashboard(routePath: '/', routeName: 'admin')]
 class DashboardController extends AbstractDashboardController
 {
     public function index(): Response
@@ -33,7 +34,6 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::section('menu.general');
         yield MenuItem::linkToDashboard('menu.admin_home', 'fa fa-home');
-        yield MenuItem::linkToRoute('menu.website_home', 'fa fa-globe', 'homepage');
 
         yield MenuItem::section('menu.cocktails');
         yield MenuItem::linkToCrud('cocktails.plural', 'fa fa-cocktail', Cocktail::class);
@@ -41,6 +41,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('ingredient_categories.plural', 'fa fa-tags', IngredientCategory::class);
 
         yield MenuItem::section('menu.administration');
-        // yield MenuItem::linkToCrud('users.plural', 'fa fa-users', User::class);
+        yield MenuItem::linkToCrud('admins.plural', 'fa fa-users', Admin::class);
     }
 }

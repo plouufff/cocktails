@@ -1,7 +1,6 @@
 var/*
 public/build
 vendor
-node_modules
 Dockerfile
 docker-compose.yml
 docker-compose.dev.yml

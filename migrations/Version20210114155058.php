@@ -9,12 +9,12 @@ use Doctrine\Migrations\AbstractMigration;
 
 final class Version20210114155058 extends AbstractMigration
 {
-    public function getDescription() : string
+    public function getDescription(): string
     {
         return 'Initialize database';
     }
 
-    public function up(Schema $schema) : void
+    public function up(Schema $schema): void
     {
         $this->addSql('CREATE TABLE cocktail (id BIGINT GENERATED ALWAYS AS IDENTITY, name VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL, recipe TEXT NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_7B4914D4989D9B62 ON cocktail (slug)');
@@ -29,7 +29,7 @@ final class Version20210114155058 extends AbstractMigration
         $this->addSql('ALTER TABLE ingredient ADD CONSTRAINT FK_6BAF7870AA35537B FOREIGN KEY (ingredient_category_id) REFERENCES ingredient_category (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
     }
 
-    public function down(Schema $schema) : void
+    public function down(Schema $schema): void
     {
         $this->addSql('ALTER TABLE cocktail_ingredient DROP CONSTRAINT FK_1A2C0A39CD6F76C6');
         $this->addSql('ALTER TABLE cocktail_ingredient DROP CONSTRAINT FK_1A2C0A39933FE08C');
