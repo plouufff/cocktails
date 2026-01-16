@@ -10,7 +10,7 @@ class CocktailControllerTest extends WebTestCase
     public function testIndex(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/');
+        $crawler = $client->request('GET', '/cocktails');
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('nav strong', 'Cocktails !');
