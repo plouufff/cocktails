@@ -1,6 +1,12 @@
-controllers:
-  resource: ../src/Controller/
+api_controllers:
+  resource: ../src/Controller/Api/
   type: attribute
+  host: "api.%app.domain%"
+
+admin_controllers:
+  resource: ../src/Controller/Admin/
+  type: attribute
+  host: "admin.%app.domain%"
 
 kernel:
   resource: ../src/Kernel.php

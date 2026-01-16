@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Api;
 
 use App\Entity\Cocktail;
 use App\Serializer\CocktailApiNormalizer;
@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
 
+#[Route('/cocktails', name: 'api_cocktails_', methods: ['GET'])]
 class CocktailController extends AbstractController
 {
     public function __construct(
@@ -19,7 +20,7 @@ class CocktailController extends AbstractController
     ) {
     }
 
-    #[Route('/cocktails', methods: ['GET'])]
+    #[Route(name: 'list')]
     public function getAllCocktails(): JsonResponse
     {
         $cocktails = $this->cocktails->findAll();
@@ -32,7 +33,7 @@ class CocktailController extends AbstractController
         return $this->json($normalizedData);
     }
 
-    #[Route('/cocktails/{slug:cocktail}', methods: ['GET'])]
+    #[Route('/{slug:cocktail}', name: 'get')]
     public function getCocktail(Cocktail $cocktail): JsonResponse
     {
         $normalizedData = $this->normalizer->normalize($cocktail, 'json', ['groups' => ['cocktail:details']]);
