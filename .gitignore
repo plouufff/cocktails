@@ -8,6 +8,13 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
+
 .idea/
 .data
 ###> squizlabs/php_codesniffer ###
@@ -15,7 +22,7 @@
 /phpcs.xml
 ###< squizlabs/php_codesniffer ###
 
-###> symfony/phpunit-bridge ###
-.phpunit.result.cache
+###> phpunit/phpunit ###
 /phpunit.xml
-###< symfony/phpunit-bridge ###
+/.phpunit.cache/
+###< phpunit/phpunit ###

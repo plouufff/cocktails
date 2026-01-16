@@ -7,7 +7,9 @@ namespace App\DataFixtures;
 use App\Entity\Cocktail;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\DependencyInjection\Attribute\WhenNot;
 
+#[WhenNot(env: 'test')]
 class CocktailFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void

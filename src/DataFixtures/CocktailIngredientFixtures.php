@@ -10,7 +10,9 @@ use App\Entity\Ingredient;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\DependencyInjection\Attribute\WhenNot;
 
+#[WhenNot(env: 'test')]
 class CocktailIngredientFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void

@@ -2,18 +2,22 @@
 
 declare(strict_types=1);
 
-namespace App\DataFixtures;
+namespace App\Tests\DataFixtures;
 
 use App\Entity\Ingredient;
 use App\Entity\IngredientCategory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\DependencyInjection\Attribute\WhenNot;
 
-#[WhenNot(env: 'test')]
-class IngredientFixtures extends Fixture implements DependentFixtureInterface
+class IngredientFixtures extends Fixture implements DependentFixtureInterface, FixtureGroupInterface
 {
+    public static function getGroups(): array
+    {
+        return ['test'];
+    }
+
     public function load(ObjectManager $manager): void
     {
         $data = [

@@ -990,12 +990,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     skip_translation_on_load?: bool|Param, // Default: false
  *     metadata_cache_pool?: scalar|null|Param, // Default: null
  * }
- * @psalm-type DamaDoctrineTestConfig = array{
- *     enable_static_connection?: mixed, // Default: true
- *     enable_static_meta_data_cache?: bool|Param, // Default: true
- *     enable_static_query_cache?: bool|Param, // Default: true
- *     connection_keys?: list<mixed>,
- * }
  * @psalm-type SecurityConfig = array{
  *     access_denied_url?: scalar|null|Param, // Default: null
  *     session_fixation_strategy?: "none"|"migrate"|"invalidate"|Param, // Default: "migrate"
@@ -1363,6 +1357,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     controllers_json?: scalar|null|Param, // Deprecated: The "twig_component.controllers_json" config option is deprecated, and will be removed in 3.0. // Default: null
  * }
+ * @psalm-type DamaDoctrineTestConfig = array{
+ *     enable_static_connection?: mixed, // Default: true
+ *     enable_static_meta_data_cache?: bool|Param, // Default: true
+ *     enable_static_query_cache?: bool|Param, // Default: true
+ *     connection_keys?: list<mixed>,
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -1413,10 +1413,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig?: TwigConfig,
  *         web_profiler?: WebProfilerConfig,
  *         stof_doctrine_extensions?: StofDoctrineExtensionsConfig,
- *         dama_doctrine_test?: DamaDoctrineTestConfig,
  *         security?: SecurityConfig,
  *         twig_extra?: TwigExtraConfig,
  *         twig_component?: TwigComponentConfig,
+ *         dama_doctrine_test?: DamaDoctrineTestConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,
