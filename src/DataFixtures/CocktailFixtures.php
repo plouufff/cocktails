@@ -22,7 +22,7 @@ class CocktailFixtures extends Fixture
 <li>Remuer doucement</li>
 <li>Verser dans le verre et compléter avec du perrier et des glaçons</li>
 <li>Décorer avec une rondelle de citron et une feuille de menthe</li>
-</ul>'
+</ul>',
             ],
             [
                 'name' => 'gin tonic',
@@ -40,7 +40,7 @@ class CocktailFixtures extends Fixture
 <li>Écraser le citron directement dans le verre et mélanger avec le sirop de sucre de canne</li>
 <li>Ajouter les glaçons</li>
 <li>Mettre la cachaça</li>
-</ul>'
+</ul>',
             ],
             [
                 'name' => 'cuba libre',
@@ -48,7 +48,7 @@ class CocktailFixtures extends Fixture
 <li>Verser le rhum et le jus de citron dans un tumbler avec de la glace pilée</li>
 <li>Compléter avec le cola</li>
 <li>Décorer avec une tranche de citron</li>
-</ul>'
+</ul>',
             ],
             [
                 'name' => 'mojito',
@@ -61,7 +61,7 @@ class CocktailFixtures extends Fixture
 <li>Agiter le shaker</li>
 <li>Verser dans le verre et compléter avec du perrier</li>
 <li>Décorer avec des feuilles de menthe non préssées</li>
-</ul>'
+</ul>',
             ],
             [
                 'name' => 'piña colada',
@@ -70,7 +70,7 @@ class CocktailFixtures extends Fixture
 <li>Ajouter de la glace pilée et mixer le tout pour avoir un mélanger crémeux</li>
 <li>Verser dans un verre glacé</li>
 <li>Décorer avec un quartier de tranche d\'ananas</li>
-</ul>'
+</ul>',
             ],
             [
                 'name' => 'bloody mary',
@@ -78,7 +78,7 @@ class CocktailFixtures extends Fixture
 <li>Verser dans le verre la vodka, le jus de citron, le jus de tomate, le tabasco, la Worcestershire sauce et une
 pincée de sel de céleri</li>
 <li>Ajouter des glaçons</li>
-</ul>'
+</ul>',
             ],
             [
                 'name' => 'margarita',
@@ -88,7 +88,7 @@ le shaker rempli de glaçe</li>
 <li>Agiter pendant 15 à 20 secondes</li>
 <li>Verser dans le verre en retenant les glaçons</li>
 <li>Frotter le bord du verre avec un quart de citron et givrer avec du sel</li>
-</ul>'
+</ul>',
             ],
             [
                 'name' => 'daiquiri',
@@ -97,12 +97,12 @@ le shaker rempli de glaçe</li>
 <li>Frapper avec les glaçons</li>
 <li>Verser dans le verre glacé</li>
 <li>Décorer avec une tranche de citron</li>
-</ul>'
+</ul>',
             ],
         ];
 
         foreach ($data as $cocktail) {
-            $newCocktail = (new Cocktail())
+            $newCocktail = new Cocktail()
                 ->setName($cocktail['name'])
                 ->setRecipe($cocktail['recipe']);
 

@@ -28,5 +28,5 @@ jobs:
             ${{ runner.os }}-php-
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
-      - name: phpcs
-        run: ./vendor/bin/phpcs --standard=PSR12 src/ tests/
+      - name: php-cs-fixer
+        run: ./vendor/bin/php-cs-fixer check

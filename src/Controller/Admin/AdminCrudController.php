@@ -13,8 +13,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 
 /**
-* @extends AbstractCrudController<Admin>
-*/
+ * @extends AbstractCrudController<Admin>
+ */
 class AdminCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string

@@ -6,14 +6,13 @@ namespace App\Serializer;
 
 use App\Entity\Cocktail;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class CocktailApiNormalizer implements NormalizerInterface
 {
     public function __construct(
         #[Autowire(service: 'serializer.normalizer.object')]
-        private readonly NormalizerInterface $normalizer
+        private readonly NormalizerInterface $normalizer,
     ) {
     }
 

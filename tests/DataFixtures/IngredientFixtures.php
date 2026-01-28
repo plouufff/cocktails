@@ -25,9 +25,9 @@ class IngredientFixtures extends Fixture implements DependentFixtureInterface, F
             'soft' => ['perrier', 'tonic', 'cola'],
             'fruit_and_vegetable' => [
                 'citron', 'jus de citron', 'citron vert', 'menthe', 'ananas', 'noix de coco râpée', 'lait de coco',
-                'jus d\'ananas', 'ananas', 'jus de tomate', 'sel de céleri'
+                'jus d\'ananas', 'ananas', 'jus de tomate', 'sel de céleri',
             ],
-            'other' => ['cassonade', 'sirop de sucre de canne', 'sucre de canne', 'tabasco', 'worcestershire sauce']
+            'other' => ['cassonade', 'sirop de sucre de canne', 'sucre de canne', 'tabasco', 'worcestershire sauce'],
         ];
 
         foreach ($data as $category => $ingredients) {
@@ -35,7 +35,7 @@ class IngredientFixtures extends Fixture implements DependentFixtureInterface, F
             $category = $manager->getRepository(IngredientCategory::class)->findOneBy(['name' => $category]);
 
             foreach ($ingredients as $ingredient) {
-                $newIngredient = (new Ingredient())
+                $newIngredient = new Ingredient()
                     ->setName($ingredient)
                     ->setIngredientCategory($category);
                 $manager->persist($newIngredient);
@@ -47,7 +47,7 @@ class IngredientFixtures extends Fixture implements DependentFixtureInterface, F
     public function getDependencies(): array
     {
         return [
-            IngredientCategoryFixtures::class
+            IngredientCategoryFixtures::class,
         ];
     }
 }

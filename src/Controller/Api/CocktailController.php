@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Controller\Api;
 
 use App\Entity\Cocktail;
-use App\Serializer\CocktailApiNormalizer;
 use App\Repository\CocktailRepository;
+use App\Serializer\CocktailApiNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
@@ -26,7 +26,7 @@ class CocktailController extends AbstractController
         $cocktails = $this->cocktails->findAll();
 
         $normalizedData = array_map(
-            fn($cocktail): array => $this->normalizer->normalize($cocktail),
+            fn ($cocktail): array => $this->normalizer->normalize($cocktail),
             $this->cocktails->findAll()
         );
 

@@ -21,16 +21,16 @@ class CocktailFixtures extends Fixture implements FixtureGroupInterface
         $data = [
             [
                 'name' => 'collins',
-                'recipe' => 'collins-recipe'
+                'recipe' => 'collins-recipe',
             ],
             [
                 'name' => 'caïpirinha',
-                'recipe' => 'caïpirinha-recipe'
+                'recipe' => 'caïpirinha-recipe',
             ],
         ];
 
         foreach ($data as $cocktail) {
-            $newCocktail = (new Cocktail())
+            $newCocktail = new Cocktail()
                 ->setName($cocktail['name'])
                 ->setRecipe($cocktail['recipe']);
 

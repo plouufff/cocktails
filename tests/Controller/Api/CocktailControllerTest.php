@@ -15,7 +15,7 @@ class CocktailControllerTest extends WebTestCase
         $this->assertResponseIsSuccessful();
         $this->assertJsonStringEqualsJsonString($client->getResponse()->getContent(), json_encode([
             ['id' => 1, 'name' => 'collins', 'slug' => 'collins'],
-            ['id' => 2, 'name' => 'caïpirinha', 'slug' => 'caipirinha']
+            ['id' => 2, 'name' => 'caïpirinha', 'slug' => 'caipirinha'],
         ]));
     }
 
