@@ -8,14 +8,14 @@ use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Dotenv\Dotenv;
 
-require dirname(__DIR__) . '/vendor/autoload.php';
+require dirname(__DIR__).'/vendor/autoload.php';
 
 if (method_exists(Dotenv::class, 'bootEnv')) {
-    (new Dotenv())->bootEnv(dirname(__DIR__) . '/.env');
+    new Dotenv()->bootEnv(dirname(__DIR__).'/.env');
 }
 
 if ($_SERVER['APP_DEBUG']) {
-    umask(0000);
+    umask(0o000);
 }
 
 $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
@@ -31,7 +31,7 @@ $execute = function (string $command, array $input = []) use ($application, $out
     $application->doRun($input, $output);
 };
 
-$execute('doctrine:database:drop', ['--force' => true,'--if-exists' => true]);
+$execute('doctrine:database:drop', ['--force' => true, '--if-exists' => true]);
 $execute('doctrine:database:create', []);
 $execute('doctrine:migrations:migrate', []);
 $execute('doctrine:fixtures:load', ['--group' => ['test']]);

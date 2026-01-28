@@ -8,13 +8,13 @@ use App\Entity\IngredientCategory;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 /**
-* @extends AbstractCrudController<IngredientCategory>
-*/
+ * @extends AbstractCrudController<IngredientCategory>
+ */
 class IngredientCategoryCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string

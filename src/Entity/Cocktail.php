@@ -14,7 +14,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: CocktailRepository::class)]
-#[UniqueEntity("slug")]
+#[UniqueEntity('slug')]
 class Cocktail
 {
     use TimestampableEntity;

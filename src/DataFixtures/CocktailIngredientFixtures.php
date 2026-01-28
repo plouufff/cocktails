@@ -70,7 +70,7 @@ class CocktailIngredientFixtures extends Fixture implements DependentFixtureInte
             $ingredient = $manager->getRepository(Ingredient::class)->findOneBy(
                 ['name' => $cocktailsIngredient['ingr']]
             );
-            $newCocktailIngredient = (new CocktailIngredient())
+            $newCocktailIngredient = new CocktailIngredient()
                 ->setCocktail($cocktail)
                 ->setIngredient($ingredient)
                 ->setQuantity($cocktailsIngredient['qty'])
@@ -84,7 +84,7 @@ class CocktailIngredientFixtures extends Fixture implements DependentFixtureInte
     {
         return [
             IngredientFixtures::class,
-            CocktailFixtures::class
+            CocktailFixtures::class,
         ];
     }
 }
