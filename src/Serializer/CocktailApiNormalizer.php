@@ -5,14 +5,12 @@ declare(strict_types=1);
 namespace App\Serializer;
 
 use App\Entity\Cocktail;
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class CocktailApiNormalizer implements NormalizerInterface
 {
     public function __construct(
-        #[Autowire(service: 'serializer.normalizer.object')]
-        private readonly NormalizerInterface $normalizer,
+        private readonly CocktailIngredientApiNormalizer $cocktailIngredientApiNormalizer,
     ) {
     }
 
@@ -22,27 +20,26 @@ class CocktailApiNormalizer implements NormalizerInterface
             return [];
         }
 
+        $mapIngredient = function ($cocktailIngredient) use ($format, $context): array|string {
+            if (isset($context['groups']) && in_array('cocktail:details', $context['groups'])) {
+                return $this->cocktailIngredientApiNormalizer->normalize($cocktailIngredient, $format, $context);
+            }
+
+            return $cocktailIngredient->getIngredient()->getName();
+        };
+
         $normalizedData = [
             'id' => $data->getId(),
             'name' => $data->getName(),
             'slug' => $data->getSlug(),
+            'ingredients' => array_map(
+                $mapIngredient,
+                $data->getCocktailIngredients()->getValues()
+            ),
         ];
 
         if (isset($context['groups']) && in_array('cocktail:details', $context['groups'])) {
-            $normalizedData['recipe'] = $data->getRecipe();
-
-            $mapIngredients = function ($cocktailIngredient): array {
-                return [
-                    'name' => $cocktailIngredient->getIngredient()->getName(),
-                    'quantity' => $cocktailIngredient->getQuantity(),
-                    'measure' => $cocktailIngredient->getMeasure(),
-                ];
-            };
-
-            $normalizedData['ingredients'] = array_map(
-                $mapIngredients,
-                $data->getCocktailIngredients()->getValues()
-            );
+            $normalizedData['recipeSteps'] = $data->getRecipeSteps();
         }
 
         return $normalizedData;

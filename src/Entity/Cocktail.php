@@ -31,8 +31,8 @@ class Cocktail
     #[Gedmo\Slug(fields: ['name'])]
     private ?string $slug = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $recipe;
+    #[ORM\Column(type: Types::JSON)]
+    private array $recipeSteps = [];
 
     #[ORM\OneToMany(targetEntity: CocktailIngredient::class, mappedBy: 'cocktail', orphanRemoval: true)]
     private Collection $cocktailIngredients;
@@ -76,14 +76,14 @@ class Cocktail
         return $this;
     }
 
-    public function getRecipe(): ?string
+    public function getRecipeSteps(): array
     {
-        return $this->recipe;
+        return $this->recipeSteps;
     }
 
-    public function setRecipe(string $recipe): self
+    public function setRecipeSteps(array $recipeSteps): self
     {
-        $this->recipe = $recipe;
+        $this->recipeSteps = $recipeSteps;
 
         return $this;
     }
