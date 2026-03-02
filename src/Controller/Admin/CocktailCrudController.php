@@ -8,11 +8,11 @@ use App\Entity\Cocktail;
 use App\Form\CocktailIngredientType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 /**
@@ -41,7 +41,7 @@ class CocktailCrudController extends AbstractCrudController
         yield AssociationField::new('cocktailIngredients', 'cocktails.ingredients')->onlyOnIndex();
         yield CollectionField::new('cocktailIngredients', 'cocktails.ingredients')
             ->allowAdd()->setEntryType(CocktailIngredientType::class)->hideOnIndex();
-        yield TextEditorField::new('recipe', 'cocktails.recipe');
+        yield ArrayField::new('recipeSteps', 'cocktails.recipe')->hideOnIndex();
         yield DateTimeField::new('createdAt', 'shared.createdAt')
             ->setFormat(DateTimeField::FORMAT_SHORT, DateTimeField::FORMAT_SHORT)->hideOnForm();
         yield DateTimeField::new('updatedAt', 'shared.updatedAt')
