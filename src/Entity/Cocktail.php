@@ -34,7 +34,7 @@ class Cocktail
     #[ORM\Column(type: Types::JSON)]
     private array $recipeSteps = [];
 
-    #[ORM\OneToMany(targetEntity: CocktailIngredient::class, mappedBy: 'cocktail', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: CocktailIngredient::class, mappedBy: 'cocktail', orphanRemoval: true, cascade: ['persist'])]
     private Collection $cocktailIngredients;
 
     public function __toString(): string
