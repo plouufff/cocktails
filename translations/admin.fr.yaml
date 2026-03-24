@@ -19,6 +19,7 @@ shared:
 
 admins:
   plural: Admins
+  roles: Rôles
   singular: Admin
 
 cocktails:

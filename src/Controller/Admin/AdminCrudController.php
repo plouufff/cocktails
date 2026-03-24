@@ -34,7 +34,7 @@ class AdminCrudController extends AbstractCrudController
     {
         yield IdField::new('id', 'shared.id')->setDisabled();
         yield EmailField::new('email', 'shared.email');
-        yield ArrayField::new('roles', 'admin.roles');
+        yield ArrayField::new('roles', 'admins.roles');
         yield DateTimeField::new('createdAt', 'shared.createdAt')
             ->setFormat(DateTimeField::FORMAT_SHORT, DateTimeField::FORMAT_SHORT)->hideOnForm();
         yield DateTimeField::new('updatedAt', 'shared.updatedAt')
