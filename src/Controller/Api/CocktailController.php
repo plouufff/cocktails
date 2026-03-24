@@ -23,8 +23,6 @@ class CocktailController extends AbstractController
     #[Route(name: 'list')]
     public function getAllCocktails(): JsonResponse
     {
-        $cocktails = $this->cocktails->findAll();
-
         $normalizedData = array_map(
             fn ($cocktail): array => $this->normalizer->normalize($cocktail),
             $this->cocktails->findAll()
