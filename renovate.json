@@ -13,6 +13,9 @@
       "rangeStrategy": "pin"
     }
   ],
+  "postUpdateOptions": [
+    "composerWithAll"
+  ],
   "prConcurrentLimit": 4,
   "timezone": "Europe/Paris"
 }
