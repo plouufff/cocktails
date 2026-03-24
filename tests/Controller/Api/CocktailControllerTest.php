@@ -13,10 +13,23 @@ class CocktailControllerTest extends WebTestCase
         $client->request(method: 'GET', uri: '/cocktails');
 
         $this->assertResponseIsSuccessful();
-        $this->assertJsonStringEqualsJsonString($client->getResponse()->getContent(), json_encode([
-            ['id' => 1, 'name' => 'collins', 'slug' => 'collins'],
-            ['id' => 2, 'name' => 'caïpirinha', 'slug' => 'caipirinha'],
-        ]));
+        $this->assertJsonStringEqualsJsonString(
+            $client->getResponse()->getContent(),
+            json_encode([
+                [
+                    'id' => 1,
+                    'name' => 'collins',
+                    'slug' => 'collins',
+                    'ingredients' => ['gin', 'jus de citron', 'sirop de sucre de canne', 'perrier', 'menthe', 'citron'],
+                ],
+                [
+                    'id' => 2,
+                    'name' => 'caïpirinha',
+                    'slug' => 'caipirinha',
+                    'ingredients' => ['cachaça', 'sirop de sucre de canne', 'citron vert'],
+                ],
+            ])
+        );
     }
 
     public function testShowSuccess(): void
@@ -30,7 +43,10 @@ class CocktailControllerTest extends WebTestCase
             json_encode([
                 'id' => 2,
                 'name' => 'caïpirinha',
-                'recipe' => 'caïpirinha-recipe',
+                'recipeSteps' => [
+                    'caïpirinha-recipe-step1',
+                    'caïpirinha-recipe-step2',
+                ],
                 'slug' => 'caipirinha',
                 'ingredients' => [
                     ['measure' => 'maxi', 'quantity' => 2, 'name' => 'cachaça'],

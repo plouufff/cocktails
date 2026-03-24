@@ -21,18 +21,24 @@ class CocktailFixtures extends Fixture implements FixtureGroupInterface
         $data = [
             [
                 'name' => 'collins',
-                'recipe' => 'collins-recipe',
+                'recipeSteps' => [
+                    'collins-recipe-step1',
+                    'collins-recipe-step2',
+                ],
             ],
             [
                 'name' => 'caïpirinha',
-                'recipe' => 'caïpirinha-recipe',
+                'recipeSteps' => [
+                    'caïpirinha-recipe-step1',
+                    'caïpirinha-recipe-step2',
+                ],
             ],
         ];
 
         foreach ($data as $cocktail) {
             $newCocktail = new Cocktail()
                 ->setName($cocktail['name'])
-                ->setRecipe($cocktail['recipe']);
+                ->setRecipeSteps($cocktail['recipeSteps']);
 
             $manager->persist($newCocktail);
         }
