@@ -38,7 +38,7 @@ class CocktailCrudController extends AbstractCrudController
     {
         yield IdField::new('id', 'shared.id')->setDisabled()->hideWhenCreating();
         yield TextField::new('name', 'shared.name');
-        yield SlugField::new('slug', 'cocktail.slug')->setTargetFieldName('name');
+        yield SlugField::new('slug', 'shared.slug')->setTargetFieldName('name');
         yield AssociationField::new('cocktailIngredients', 'cocktails.ingredients')->onlyOnIndex();
         yield CollectionField::new('cocktailIngredients', 'cocktails.ingredients')
             ->allowAdd()->setEntryType(CocktailIngredientType::class)->hideOnIndex();

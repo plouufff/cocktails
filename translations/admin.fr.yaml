@@ -15,6 +15,7 @@ shared:
   createdAt: Date de création
   email: Email
   name: Nom
+  slug: Slug
   updatedAt: Date de modification
 
 admins:
@@ -27,7 +28,6 @@ cocktails:
   plural: Cocktails
   recipe: Recette
   singular: Cocktail
-  slug: Slug
 
 cocktail_ingredients:
   quantity: Quantité
