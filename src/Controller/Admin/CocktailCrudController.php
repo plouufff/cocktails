@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 /**
@@ -37,7 +38,7 @@ class CocktailCrudController extends AbstractCrudController
     {
         yield IdField::new('id', 'shared.id')->setDisabled()->hideWhenCreating();
         yield TextField::new('name', 'shared.name');
-        yield TextField::new('slug', 'cocktails.slug');
+        yield SlugField::new('slug', 'cocktail.slug')->setTargetFieldName('name');
         yield AssociationField::new('cocktailIngredients', 'cocktails.ingredients')->onlyOnIndex();
         yield CollectionField::new('cocktailIngredients', 'cocktails.ingredients')
             ->allowAdd()->setEntryType(CocktailIngredientType::class)->hideOnIndex();
