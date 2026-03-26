@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
 
@@ -36,6 +37,7 @@ class IngredientCrudController extends AbstractCrudController
     {
         yield IdField::new('id', 'shared.id')->setDisabled();
         yield TextField::new('name', 'shared.name');
+        yield SlugField::new('slug', 'shared.slug')->setTargetFieldName('name');
         yield AssociationField::new('ingredientCategory', 'ingredient_categories.singular');
         yield DateTimeField::new('createdAt', 'shared.createdAt')
             ->setFormat(DateTimeField::FORMAT_SHORT, DateTimeField::FORMAT_SHORT)->hideOnForm();

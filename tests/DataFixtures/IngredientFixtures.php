@@ -25,7 +25,7 @@ class IngredientFixtures extends Fixture implements DependentFixtureInterface, F
             'soft' => ['perrier', 'tonic', 'cola'],
             'fruit_and_vegetable' => [
                 'citron', 'jus de citron', 'citron vert', 'menthe', 'ananas', 'noix de coco râpée', 'lait de coco',
-                'jus d\'ananas', 'ananas', 'jus de tomate', 'sel de céleri',
+                'jus d\'ananas', 'jus de tomate', 'sel de céleri',
             ],
             'other' => ['cassonade', 'sirop de sucre de canne', 'sucre de canne', 'tabasco', 'worcestershire sauce'],
         ];
