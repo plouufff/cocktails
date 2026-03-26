@@ -35,7 +35,7 @@ class CocktailCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield IdField::new('id', 'shared.id')->setDisabled();
+        yield IdField::new('id', 'shared.id')->setDisabled()->hideWhenCreating();
         yield TextField::new('name', 'shared.name');
         yield TextField::new('slug', 'cocktails.slug');
         yield AssociationField::new('cocktailIngredients', 'cocktails.ingredients')->onlyOnIndex();
