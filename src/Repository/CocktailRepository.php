@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Dto\CocktailSearchDto;
 use App\Entity\Cocktail;
-use App\Entity\Ingredient;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\Persistence\ManagerRegistry;
@@ -39,13 +39,18 @@ class CocktailRepository extends ServiceEntityRepository
     /**
      * @return array<int, Cocktail>
      */
-    public function findByIngredient(Ingredient $ingredient): array
+    public function search(CocktailSearchDto $cocktailSearchDto): array
     {
-        return $this->createQueryBuilder('c')
-            ->leftJoin('c.cocktailIngredients', 'ci')
-            ->andWhere('ci.ingredient = :ingredient')
-            ->setParameter('ingredient', $ingredient)
-            ->getQuery()
-            ->getResult();
+        $queryBuilder = $this->createQueryBuilder('c');
+
+        if ($cocktailSearchDto->ingredient) {
+            $queryBuilder
+                ->leftJoin('c.cocktailIngredients', 'ci')
+                ->leftJoin('ci.ingredient', 'i')
+                ->andWhere('i.slug = :ingredientSlug')
+                ->setParameter('ingredientSlug', $cocktailSearchDto->ingredient);
+        }
+
+        return $queryBuilder->getQuery()->getResult();
     }
 }
