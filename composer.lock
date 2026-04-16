@@ -1196,23 +1196,22 @@
         },
         {
             "name": "easycorp/easyadmin-bundle",
-            "version": "v5.0.2",
+            "version": "v5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyCorp/EasyAdminBundle.git",
-                "reference": "75a421266c93e268849fcc9e97da47038fa09519"
+                "reference": "d56826d50887eea7a65afa2bd3157aed6c87e0ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/75a421266c93e268849fcc9e97da47038fa09519",
-                "reference": "75a421266c93e268849fcc9e97da47038fa09519",
+                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/d56826d50887eea7a65afa2bd3157aed6c87e0ea",
+                "reference": "d56826d50887eea7a65afa2bd3157aed6c87e0ea",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "^3.10|^4.4",
                 "doctrine/doctrine-bundle": "^2.18|^3.2",
                 "doctrine/orm": "^2.20|^3.6",
-                "ext-json": "*",
                 "php": ">=8.2",
                 "symfony/asset": "^6.4|^7.0|^8.0",
                 "symfony/cache": "^6.4.33|^7.0|^8.0",
@@ -1291,7 +1290,7 @@
             ],
             "support": {
                 "issues": "https://github.com/EasyCorp/EasyAdminBundle/issues",
-                "source": "https://github.com/EasyCorp/EasyAdminBundle/tree/v5.0.2"
+                "source": "https://github.com/EasyCorp/EasyAdminBundle/tree/v5.0.4"
             },
             "funding": [
                 {
@@ -1299,7 +1298,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-08T19:34:29+00:00"
+            "time": "2026-04-01T18:44:07+00:00"
         },
         {
             "name": "gedmo/doctrine-extensions",
