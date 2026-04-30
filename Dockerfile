@@ -1,4 +1,4 @@
-FROM php:8.4-fpm-alpine AS symfony_php
+FROM php:8.5-fpm-alpine AS symfony_php
 
 # persistent / runtime deps
 RUN apk add --no-cache \
