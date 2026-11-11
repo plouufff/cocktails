@@ -22,6 +22,7 @@ services:
       APP_DOMAIN: ${APP_DOMAIN}
       APP_SECRET: ${APP_SECRET}
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:${POSTGRES_PORT}/${POSTGRES_DB}?serverVersion=${POSTGRES_VERSION:-18}&charset=${POSTGRES_CHARSET:-utf8}
+      TRUSTED_PROXIES: ${TRUSTED_PROXIES}
 
   database:
     image: postgres:18
